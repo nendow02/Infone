@@ -8,77 +8,80 @@
 
 import UIKit
 
-class InfoTableViewController: UITableViewController {
-
+class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredItems = [Int]()
+    var rowCounter = 0
+    // Use rowCounter instead of indexPath so data doesn't repeat every section
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        for item in AppData.shared.rowInfo {
+            let currentItem = item.value.first!.key.lowercased()
+            if currentItem.contains(searchController.searchBar.text!.lowercased()) {
+                filteredItems.append(item.key)
+            }
+        }
+        tableView.reloadData()
+        rowCounter = 0
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        if searchController.isActive {
+          return 1
+        }
+        return AppData.shared.sectionInfo.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        if searchController.isActive {
+            return filteredItems.count
+        }
+        let currentSection = AppData.shared.sectionInfo[section]
+        return currentSection!.first!.key
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if searchController.isActive {
+               return nil
+             }
+          let currentSection = AppData.shared.sectionInfo[section]
+          return currentSection!.first!.value
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CellTableViewCell
+        var currentInfo: [String:String]
+        if searchController.isActive {
+            let currentFiltered = filteredItems.first!
+            //gets the key of whichever filtered item is next
+            //able to do .first because first item is always removed after
+            currentInfo = AppData.shared.rowInfo[currentFiltered]!
+            filteredItems.remove(at: 0)
+            //removes so duplicates don't appear in search
+        }else {
+            currentInfo = AppData.shared.rowInfo[rowCounter]!
+            rowCounter += 1
+        }
+        cell.item.text = currentInfo.first?.key
+        cell.result.text = currentInfo.first?.value
         return cell
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

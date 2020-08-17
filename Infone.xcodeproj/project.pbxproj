@@ -15,6 +15,7 @@
 		2BDDBCAE24E8B244002EC9A5 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBCAD24E8B244002EC9A5 /* InfoTableViewController.swift */; };
 		2BDDBCB224E9D491002EC9A5 /* CellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBCB124E9D491002EC9A5 /* CellTableViewCell.swift */; };
 		2BDDBCB424E9D604002EC9A5 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBCB324E9D604002EC9A5 /* AppData.swift */; };
+		C16070D47CEB77D0CF323F5D /* libPods-Infone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 367082B03CCC6B93AC8DEEE8 /* libPods-Infone.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		2BDDBCAD24E8B244002EC9A5 /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		2BDDBCB124E9D491002EC9A5 /* CellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTableViewCell.swift; sourceTree = "<group>"; };
 		2BDDBCB324E9D604002EC9A5 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		367082B03CCC6B93AC8DEEE8 /* libPods-Infone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Infone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87EA219D9ACD6316069C9F10 /* Pods-Infone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infone.debug.xcconfig"; path = "Target Support Files/Pods-Infone/Pods-Infone.debug.xcconfig"; sourceTree = "<group>"; };
+		B1B2EBB48BA82DD3CB36795E /* Pods-Infone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infone.release.xcconfig"; path = "Target Support Files/Pods-Infone/Pods-Infone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C16070D47CEB77D0CF323F5D /* libPods-Infone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				2BDDBC9624E8961D002EC9A5 /* Infone */,
 				2BDDBC9524E8961D002EC9A5 /* Products */,
+				32FA09406279FD63DE14FFAD /* Pods */,
+				BA92E8F87EDD7B5504FD0159 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,23 @@
 			path = Infone;
 			sourceTree = "<group>";
 		};
+		32FA09406279FD63DE14FFAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				87EA219D9ACD6316069C9F10 /* Pods-Infone.debug.xcconfig */,
+				B1B2EBB48BA82DD3CB36795E /* Pods-Infone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA92E8F87EDD7B5504FD0159 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				367082B03CCC6B93AC8DEEE8 /* libPods-Infone.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +104,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BDDBCAA24E89620002EC9A5 /* Build configuration list for PBXNativeTarget "Infone" */;
 			buildPhases = (
+				E5B0CC281BEB52BED12F7C0E /* [CP] Check Pods Manifest.lock */,
 				2BDDBC9024E8961D002EC9A5 /* Sources */,
 				2BDDBC9124E8961D002EC9A5 /* Frameworks */,
 				2BDDBC9224E8961D002EC9A5 /* Resources */,
@@ -138,6 +163,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5B0CC281BEB52BED12F7C0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Infone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BDDBC9024E8961D002EC9A5 /* Sources */ = {
@@ -290,11 +340,13 @@
 		};
 		2BDDBCAB24E89620002EC9A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87EA219D9ACD6316069C9F10 /* Pods-Infone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7BF3CRD6T;
 				INFOPLIST_FILE = Infone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,17 +354,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Nathan-Endow.Infone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2BDDBCAC24E89620002EC9A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1B2EBB48BA82DD3CB36795E /* Pods-Infone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q7BF3CRD6T;
 				INFOPLIST_FILE = Infone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,7 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Nathan-Endow.Infone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

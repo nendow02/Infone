@@ -7,26 +7,28 @@
 //
 
 import UIKit
+import DeviceKit
 
 class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredItems = [Int]()
+    var filteredRows = [row]()
     var rowCounter = 0
     // Use rowCounter instead of indexPath so data doesn't repeat every section
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppData.shared.deviceInfo(device: Device.current)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        for item in AppData.shared.rowInfo {
-            let currentItem = item.value.first!.key.lowercased()
+        for i in AppData.shared.rowInfo {
+            let currentItem = i.item.lowercased()
             if currentItem.contains(searchController.searchBar.text!.lowercased()) {
-                filteredItems.append(item.key)
+                filteredRows.append(i)
             }
         }
         tableView.reloadData()
@@ -44,7 +46,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive {
-            return filteredItems.count
+            return filteredRows.count
         }
         let currentSection = AppData.shared.sectionInfo[section]
         return currentSection!.first!.key
@@ -61,20 +63,24 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CellTableViewCell
-        var currentInfo: [String:String]
+        var currentRow: row
         if searchController.isActive {
-            let currentFiltered = filteredItems.first!
-            //gets the key of whichever filtered item is next
-            //able to do .first because first item is always removed after
-            currentInfo = AppData.shared.rowInfo[currentFiltered]!
-            filteredItems.remove(at: 0)
+            currentRow = filteredRows.first!
+            //gets the row of whichever filtered row is next
+            //able to do .first because first row is always removed after
+            filteredRows.remove(at: 0)
             //removes so duplicates don't appear in search
         }else {
-            currentInfo = AppData.shared.rowInfo[rowCounter]!
+            currentRow = AppData.shared.rowInfo[rowCounter]
             rowCounter += 1
+            if currentRow.result  ==  ""{
+                // first value will be "" if device is unsupported bc data would never be added from switch
+                let alert = UIAlertController(title: "Unsupported Device", message: "Infone doesn't support this device yet", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+                 }
         }
-        cell.item.text = currentInfo.first?.key
-        cell.result.text = currentInfo.first?.value
+        cell.item.text = currentRow.item
+        cell.result.text = currentRow.result
         return cell
     }
     

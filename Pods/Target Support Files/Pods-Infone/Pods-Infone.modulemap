@@ -1,0 +1,6 @@
+module Pods_Infone {
+  umbrella header "Pods-Infone-umbrella.h"
+
+  export *
+  module * { export * }
+}

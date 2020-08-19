@@ -13,8 +13,6 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredRows = [row]()
-    var rowCounter = 0
-    // Use rowCounter instead of indexPath so data doesn't repeat every section
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +20,21 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
+        self.title = Device.current.name ?? "My iPhone"
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         for i in AppData.shared.rowInfo {
-            let currentItem = i.item.lowercased()
+            //loop section
+            for x in i {
+                //loop row
+            let currentItem = x.item.lowercased()
             if currentItem.contains(searchController.searchBar.text!.lowercased()) {
-                filteredRows.append(i)
+                filteredRows.append(x)
+                }
             }
         }
         tableView.reloadData()
-        rowCounter = 0
     }
 
     // MARK: - Table view data source
@@ -49,7 +51,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
             return filteredRows.count
         }
         let currentSection = AppData.shared.sectionInfo[section]
-        return currentSection!.first!.key
+        return currentSection.rowCount
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -57,7 +59,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
                return nil
              }
           let currentSection = AppData.shared.sectionInfo[section]
-          return currentSection!.first!.value
+        return currentSection.text
     }
 
     
@@ -71,8 +73,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
             filteredRows.remove(at: 0)
             //removes so duplicates don't appear in search
         }else {
-            currentRow = AppData.shared.rowInfo[rowCounter]
-            rowCounter += 1
+            currentRow = AppData.shared.rowInfo[indexPath.section][indexPath.row]
             if currentRow.result  ==  ""{
                 // first value will be "" if device is unsupported bc data would never be added from switch
                 let alert = UIAlertController(title: "Unsupported Device", message: "Infone doesn't support this device yet", preferredStyle: .alert)

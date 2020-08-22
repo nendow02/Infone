@@ -50,16 +50,14 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         if searchController.isActive {
             return filteredRows.count
         }
-        let currentSection = AppData.shared.sectionInfo[section]
-        return currentSection.rowCount
+        return AppData.shared.rowInfo[section].count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if searchController.isActive {
                return nil
              }
-          let currentSection = AppData.shared.sectionInfo[section]
-        return currentSection.text
+          return AppData.shared.sectionInfo[section]
     }
 
     

@@ -93,35 +93,345 @@ class AppData {
             ]
             
         case .iPhone6s,.simulator(.iPhone6s):
-            rowInfo = [[
-                row(item: "Device", result: "iPhoneTest"),
-                row(item: "Released", result: "2020")
-            ]]
-            
+            //MARK: iPhone 6s
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone 6s"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A9"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2015")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "5.44\""),
+                    row(item: "Width", result: "2.64\""),
+                    row(item: "Depth", result: "0.28\""),
+                    row(item: "Weight", result: "5.04 oz"),
+                    row(item: "Screen Size", result: "4.7\""),
+                    row(item: "Water Resistant", result: "-")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "326 PPI"),
+                    row(item: "Resolution", result: "1334:750 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1400:1"),
+                    row(item: "Max Brightness", result: "500 Nits"),
+                    row(item: "True Tone", result: "No")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "4.2"),
+                    row(item: "NFC", result: "Yes W/O Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/O Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "Yes")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 11 Hours"),
+                    row(item: "Audio Playback", result: "Up to 50 Hours"),
+                    row(item: "Capacity", result: "1715 mAh"),
+                    row(item: "Wireless Charging", result: "No"),
+                    row(item: "Fast-Charge Capable", result: "No")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "No"),
+                    row(item: "SIM Card", result: "Nano-SIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ac Wi-Fi")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Mono Speaker"),
+                    row(item: "Audio Jack", result: "Yes"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "No")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "5 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "No"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "720p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "1"),
+                    row(item: "4K Video Recording", result: "30 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "No"),
+                    row(item: "Photo Digital Zoom", result: "5x"),
+                    row(item: "Video Digital Zoom", result: "3x"),
+                    row(item: "Optical Zoom", result: "No"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "No"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
         case .iPhone6sPlus,.simulator(.iPhone6sPlus):
-            rowInfo = [[
-                row(item: "Device", result: "iPhoneTest"),
-                row(item: "Released", result: "2020")
-            ]]
-        
+            //MARK: iPhone 6s Plus
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone 6s Plus"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A9"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2015")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "6.23\""),
+                    row(item: "Width", result: "3.07\""),
+                    row(item: "Depth", result: "0.29\""),
+                    row(item: "Weight", result: "6.77 oz"),
+                    row(item: "Screen Size", result: "5.5\""),
+                    row(item: "Water Resistant", result: "-")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "401 PPI"),
+                    row(item: "Resolution", result: "1920:1080 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1300:1"),
+                    row(item: "Max Brightness", result: "500 Nits"),
+                    row(item: "True Tone", result: "No")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "4.2"),
+                    row(item: "NFC", result: "Yes W/O Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/O Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "Yes")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 14 Hours"),
+                    row(item: "Audio Playback", result: "Up to 80 Hours"),
+                    row(item: "Capacity", result: "2915 mAh"),
+                    row(item: "Wireless Charging", result: "No"),
+                    row(item: "Fast-Charge Capable", result: "No")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "No"),
+                    row(item: "SIM Card", result: "Nano-SIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ac Wi-Fi")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Mono Speaker"),
+                    row(item: "Audio Jack", result: "Yes"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "No")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "5 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "No"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "720p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "1"),
+                    row(item: "4K Video Recording", result: "30 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "No"),
+                    row(item: "Photo Digital Zoom", result: "5x"),
+                    row(item: "Video Digital Zoom", result: "3x"),
+                    row(item: "Optical Zoom", result: "No"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "No"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
         case .iPhone7Plus,.simulator(.iPhone7Plus):
-            rowInfo = [[
-                row(item: "Device", result: "iPhoneTest"),
-                row(item: "Released", result: "2020")
-            ]]
-            
+            //MARK: iPhone 7 Plus
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone 7 Plus"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A10"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2016")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "6.23\""),
+                    row(item: "Width", result: "3.07\""),
+                    row(item: "Depth", result: "0.29\""),
+                    row(item: "Weight", result: "6.63 oz"),
+                    row(item: "Screen Size", result: "5.5\""),
+                    row(item: "Water Resistant", result: "1 m for 30 min")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "326 PPI"),
+                    row(item: "Resolution", result: "1334:750 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1300:1"),
+                    row(item: "Max Brightness", result: "625 Nits"),
+                    row(item: "True Tone", result: "No")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "4.2"),
+                    row(item: "NFC", result: "Yes W/ Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/O Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "Yes")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 14 Hours"),
+                    row(item: "Audio Playback", result: "Up to 60 Hours"),
+                    row(item: "Capacity", result: "2900 mAh"),
+                    row(item: "Wireless Charging", result: "No"),
+                    row(item: "Fast-Charge Capable", result: "No")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "No"),
+                    row(item: "SIM Card", result: "Nano-SIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ac Wi-Fi")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Stereo"),
+                    row(item: "Audio Jack", result: "No"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "No")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "7 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "No"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "1080p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "2"),
+                    row(item: "4K Video Recording", result: "30 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "No"),
+                    row(item: "Photo Digital Zoom", result: "10x"),
+                    row(item: "Video Digital Zoom", result: "6x"),
+                    row(item: "Optical Zoom", result: "2x In"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "No"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
         case .iPhone7, .simulator(.iPhone7):
-            rowInfo = [[
-                row(item: "Device", result: "iPhoneTest"),
-                row(item: "Released", result: "2020")
-            ]]
-            
+            //MARK: iPhone 7
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone 7"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A10"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2016")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "5.44\""),
+                    row(item: "Width", result: "2.64\""),
+                    row(item: "Depth", result: "0.28\""),
+                    row(item: "Weight", result: "4.87 oz"),
+                    row(item: "Screen Size", result: "4.7\""),
+                    row(item: "Water Resistant", result: "1 m for 30 min")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "401 PPI"),
+                    row(item: "Resolution", result: "1334:750 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1400:1"),
+                    row(item: "Max Brightness", result: "625 Nits"),
+                    row(item: "True Tone", result: "No")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "4.2"),
+                    row(item: "NFC", result: "Yes W/ Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/O Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "Yes")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 13 Hours"),
+                    row(item: "Audio Playback", result: "Up to 40 Hours"),
+                    row(item: "Capacity", result: "1960 mAh"),
+                    row(item: "Wireless Charging", result: "No"),
+                    row(item: "Fast-Charge Capable", result: "No")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "No"),
+                    row(item: "SIM Card", result: "Nano-SIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ac Wi-Fi")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Stereo"),
+                    row(item: "Audio Jack", result: "No"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "No")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "7 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "No"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "1080p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "1"),
+                    row(item: "4K Video Recording", result: "30 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "No"),
+                    row(item: "Photo Digital Zoom", result: "5x"),
+                    row(item: "Video Digital Zoom", result: "3x"),
+                    row(item: "Optical Zoom", result: "No"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "No"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
         case .iPhone8Plus, .simulator(.iPhone8Plus):
-            rowInfo = [[
-                row(item: "Device", result: "iPhoneTest"),
-                row(item: "Released", result: "2020")
-            ]]
-            
+            //MARK: iPhone 8 Plus
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone 8 Plus"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A11"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2017")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "6.24\""),
+                    row(item: "Width", result: "3.07\""),
+                    row(item: "Depth", result: "0.30\""),
+                    row(item: "Weight", result: "7.13 oz"),
+                    row(item: "Screen Size", result: "5.5\""),
+                    row(item: "Water Resistant", result: "1 m for 30 min")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "401 PPI"),
+                    row(item: "Resolution", result: "1920:1080 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1300:1"),
+                    row(item: "Max Brightness", result: "625 Nits"),
+                    row(item: "True Tone", result: "Yes")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "5.0"),
+                    row(item: "NFC", result: "Yes W/ Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/O Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "Yes")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 14 Hours"),
+                    row(item: "Audio Playback", result: "Up to 60 Hours"),
+                    row(item: "Capacity", result: "2675 mAh"),
+                    row(item: "Wireless Charging", result: "Yes"),
+                    row(item: "Fast-Charge Capable", result: "Yes")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "No"),
+                    row(item: "SIM Card", result: "Nano-SIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ac Wi-Fi")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Stereo"),
+                    row(item: "Audio Jack", result: "No"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "Yes")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "7 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "No"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "1080p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "2"),
+                    row(item: "4K Video Recording", result: "24/30/60 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "No"),
+                    row(item: "Photo Digital Zoom", result: "10x"),
+                    row(item: "Video Digital Zoom", result: "6x"),
+                    row(item: "Optical Zoom", result: "2x In"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "No"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
         case .iPhone8, .simulator(.iPhone8):
             //MARK: iPhone 8
             rowInfo = [

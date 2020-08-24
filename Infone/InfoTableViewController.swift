@@ -13,7 +13,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredRows = [row]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         AppData.shared.deviceInfo(device: Device.current)
@@ -24,17 +24,45 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        filteredRows = []
         for i in AppData.shared.rowInfo {
             //loop section
             for x in i {
                 //loop row
             let currentItem = x.item.lowercased()
-            if currentItem.contains(searchController.searchBar.text!.lowercased()) {
+                if currentItem.contains(searchController.searchBar.text!.lowercased()) {
                 filteredRows.append(x)
                 }
             }
         }
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.additionalSafeAreaInsets.top = 0
+        guard !filteredRows.isEmpty else {return}
+        let item = filteredRows[indexPath.row]
+        var rowCount = 0
+        var secCount = 0
+        var itemIndex = IndexPath()
+        //loop rowInfo to find where the item is
+        wholeLoop: for i in AppData.shared.rowInfo {
+            //loop section
+            for x in i {
+                //loop row
+                if x.item == item.item {
+                    itemIndex = IndexPath(row: rowCount, section: secCount)
+                    break wholeLoop
+                }
+                rowCount += 1
+            }
+            secCount += 1
+            rowCount = 0
+        }
+        searchController.isActive = false
+        tableView.reloadData()
+        tableView.scrollToRow(at: itemIndex, at: .middle, animated: true)
+        self.additionalSafeAreaInsets.top = 20
     }
 
     // MARK: - Table view data source
@@ -65,12 +93,10 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CellTableViewCell
         var currentRow: row
         if searchController.isActive {
-            currentRow = filteredRows.first!
-            //gets the row of whichever filtered row is next
-            //able to do .first because first row is always removed after
-            filteredRows.remove(at: 0)
-            //removes so duplicates don't appear in search
+            currentRow = filteredRows[indexPath.row]
+            cell.selectionStyle = .default
         }else {
+            cell.selectionStyle = .none
             currentRow = AppData.shared.rowInfo[indexPath.section][indexPath.row]
             if currentRow.result  ==  ""{
                 // first value will be "" if device is unsupported bc data would never be added from switch
@@ -83,10 +109,5 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         return cell
     }
     
-
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
     
 }

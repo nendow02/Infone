@@ -13,14 +13,21 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredRows = [row]()
+    var chosenDevice: Device?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppData.shared.deviceInfo(device: Device.current)
+        // if chosenDevice isn't nil it means user came from Devices tab
+        if chosenDevice != nil {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        } else {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        AppData.shared.deviceInfo(device: chosenDevice ?? Device.current)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
-        self.title = Device.current.name ?? "My iPhone"
+        self.title = chosenDevice?.description ?? Device.current.name ?? "My iPhone"
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -37,6 +44,8 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         }
         tableView.reloadData()
     }
+        
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.additionalSafeAreaInsets.top = 0
@@ -62,10 +71,8 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         searchController.isActive = false
         tableView.reloadData()
         tableView.scrollToRow(at: itemIndex, at: .middle, animated: true)
-        self.additionalSafeAreaInsets.top = 20
+        self.additionalSafeAreaInsets.top = 0.2
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         if searchController.isActive {

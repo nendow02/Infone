@@ -981,6 +981,74 @@ class AppData {
                     row(item: "Night Mode", result: "Yes")
                 ]
             ]
+        //MARK: iPhone SE 2
+        case .iPhoneSE2, .simulator(.iPhoneSE2):
+            rowInfo = [
+                [//ABOUT
+                    row(item: "Device", result: "iPhone SE (2nd Gen)"),
+                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Chipset", result: "A13"),
+                    row(item: "iOS", result: device.systemVersion ?? "-"),
+                    row(item: "Released", result: "2020")
+                ],[//MEASUREMENTS
+                    row(item: "Height", result: "5.45\""),
+                    row(item: "Width", result: "2.65\""),
+                    row(item: "Depth", result: "0.29\""),
+                    row(item: "Weight", result: "5.22 oz"),
+                    row(item: "Screen Size", result: "4.7\""),
+                    row(item: "Water Resistant", result: "1 m for 30 min")
+                ],[//DISPLAY
+                    row(item: "Display Type", result: "LCD"),
+                    row(item: "Pixel Density", result: "326 PPI"),
+                    row(item: "Resolution", result: "1334:750 Pixels"),
+                    row(item: "Aspect Ratio", result: "16:9"),
+                    row(item: "Contrast Ratio", result: "1400:1"),
+                    row(item: "Max Brightness", result: "625 Nits"),
+                    row(item: "True Tone", result: "Yes")
+                ],[//FEATURES
+                    row(item: "Bluetooth", result: "5.0"),
+                    row(item: "NFC", result: "Yes W/ Reader Mode"),
+                    row(item: "Express Cards", result: "Yes W/ Power Reserve"),
+                    row(item: "Touch ID", result: "Yes"),
+                    row(item: "Face ID", result: "No"),
+                    row(item: "3D Touch", result: "No")
+                ],[//BATTERY
+                    row(item: "Video Playback", result: "Up to 13 Hours"),
+                    row(item: "Audio Playback", result: "Up to 40 Hours"),
+                    row(item: "Capacity", result: "1821 mAh"),
+                    row(item: "Wireless Charging", result: "Yes"),
+                    row(item: "Fast-Charge Capable", result: "Yes")
+                ],[//CONNECTIVITY
+                    row(item: "Dual SIM", result: "Yes"),
+                    row(item: "SIM Card", result: "Nano-SIM, eSIM"),
+                    row(item: "Wi-Fi Calling", result: "Yes"),
+                    row(item: "Wi-Fi", result: "802.11ax Wi-Fi 6")
+                ],[//AUDIO AND VIDEO
+                    row(item: "Audio Playback", result: "Stereo"),
+                    row(item: "Audio Jack", result: "No"),
+                    row(item: "Dolby Atmos", result: "No"),
+                    row(item: "Dolby Vision HDR", result: "Yes")
+                ],[//FRONT CAMERA
+                    row(item: "Type", result: "FaceTime HD Camera"),
+                    row(item: "Photo Size", result: "7 MP"),
+                    row(item: "Aperture", result: "ƒ/2.2"),
+                    row(item: "Portrait Mode", result: "Yes"),
+                    row(item: "Slo-Mo Support", result: "No"),
+                    row(item: "Video Recording", result: "1080p HD at 30 FPS")
+                ],[//REAR CAMERA
+                    row(item: "Number of Cameras", result: "1"),
+                    row(item: "4K Video Recording", result: "24/30/60 FPS"),
+                    row(item: "1080p HD Video Recording", result: "30/60 FPS"),
+                    row(item: "Extended Dynamic Range", result: "Up to 30 FPS"),
+                    row(item: "Photo Digital Zoom", result: "5x"),
+                    row(item: "Video Digital Zoom", result: "3x"),
+                    row(item: "Optical Zoom", result: "No"),
+                    row(item: "Audio Zoom", result: "No"),
+                    row(item: "Slo-Mo Support", result: "Yes"),
+                    row(item: "Stereo Recording", result: "Yes"),
+                    row(item: "Night Mode", result: "No")
+                ]
+            ]
             
         default: break
             

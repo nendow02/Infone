@@ -21,14 +21,15 @@ class AppData {
     var rowInfo = [[row(item: "", result: "")]]
     let sectionInfo = ["About","Measurements","Display","Features","Battery","Connectivity","Audio and Video","Front Camera","Rear Camera"]
     
-    func deviceInfo(device:Device) {
+    //MARK: Device Info
+    func deviceInfo(device:Device, saveName: String?) {
         switch device {
         case .iPhoneSE,.simulator(.iPhoneSE):
             //MARK: iPhone SE 1
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone SE (1st Gen)"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ?? device.name ?? "-"),
                     row(item: "Chipset", result: "A9"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2016")
@@ -97,7 +98,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 6s"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A9"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2015")
@@ -165,7 +166,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 6s Plus"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A9"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2015")
@@ -233,7 +234,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 7 Plus"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A10"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2016")
@@ -301,7 +302,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 7"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A10"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2016")
@@ -369,7 +370,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 8 Plus"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A11"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2017")
@@ -437,7 +438,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 8"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A11"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2017")
@@ -505,7 +506,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone X"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A11"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2017")
@@ -573,7 +574,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone XR"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A12"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2018")
@@ -642,7 +643,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone XS Max"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A12"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2018")
@@ -712,7 +713,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone XS"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A12"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2018")
@@ -782,7 +783,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 11 Pro Max"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A13"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2019")
@@ -850,7 +851,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 11 Pro"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A13"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2019")
@@ -918,7 +919,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone 11"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A13"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2019")
@@ -986,7 +987,7 @@ class AppData {
             rowInfo = [
                 [//ABOUT
                     row(item: "Device", result: "iPhone SE (2nd Gen)"),
-                    row(item: "Name", result: device.name ?? "-"),
+                    row(item: "Name", result: saveName ??  device.name ?? "-"),
                     row(item: "Chipset", result: "A13"),
                     row(item: "iOS", result: device.systemVersion ?? "-"),
                     row(item: "Released", result: "2020")

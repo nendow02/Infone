@@ -14,20 +14,49 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
     let searchController = UISearchController(searchResultsController: nil)
     var filteredRows = [row]()
     var chosenDevice: Device?
-
+    var chosenDeviceName: String?
+    
+    @objc func addAction() {
+        //This is for name input on add button
+        let alertController = UIAlertController(title: "Choose Name for Device", message: "Please give a name for the device so you can recognize it later on.", preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: { (textfield) in
+            textfield.placeholder = "Device Name"
+        })
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
+            let textField = alertController.textFields![0] as UITextField
+            let name = textField.text ?? "Unnamed"
+            var currentSaveName = UserDefaults.standard.array(forKey: "name") ?? [String]()
+            currentSaveName.append(name)
+            var currentSaveDevice = UserDefaults.standard.array(forKey: "device") ?? [String]()
+            currentSaveDevice.append(self.chosenDevice!.description)
+            UserDefaults.standard.set(currentSaveName, forKey: "name")
+            UserDefaults.standard.set(currentSaveDevice, forKey: "device")
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
+            (action : UIAlertAction!) -> Void in })
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        self.present(alertController, animated: true, completion: nil)
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // if chosenDevice isn't nil it means user came from Devices tab
+        // if chosenDevice isn't nil it means user came from Devices or Saved tab
         if chosenDevice != nil {
-            navigationController?.navigationBar.prefersLargeTitles = false
+            navigationItem.largeTitleDisplayMode = .never
+            if chosenDeviceName == nil {
+            //if chosenDeviceName is nil it means user did not come from Saved tab
+            let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
+            navigationItem.rightBarButtonItem = addBarButton
+            }
         } else {
-            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.largeTitleDisplayMode = .always
         }
-        AppData.shared.deviceInfo(device: chosenDevice ?? Device.current)
+        AppData.shared.deviceInfo(device: chosenDevice ?? Device.current, saveName:chosenDeviceName)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
-        self.title = chosenDevice?.description ?? Device.current.name ?? "My iPhone"
+        self.title = chosenDeviceName ?? chosenDevice?.description ?? Device.current.name ?? "My iPhone"
     }
     
     func updateSearchResults(for searchController: UISearchController) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BA6A77424FB143A00C6EABD /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA6A77324FB143A00C6EABD /* SavedTableViewController.swift */; };
 		2BAD526A24F863A900AF9DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAD526924F8639600AF9DEA /* Assets.xcassets */; };
 		2BC228D224F5B1360026D142 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC228D124F5B1360026D142 /* DevicesViewController.swift */; };
 		2BDDBC9824E8961D002EC9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDBC9724E8961D002EC9A5 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BA6A77324FB143A00C6EABD /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedTableViewController.swift; path = /Users/nathanendow/Projects/Infone/Infone/SavedTableViewController.swift; sourceTree = "<absolute>"; };
 		2BAD526924F8639600AF9DEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BC228D124F5B1360026D142 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DevicesViewController.swift; path = /Users/nathanendow/Projects/Infone/Infone/DevicesViewController.swift; sourceTree = "<absolute>"; };
 		2BDDBC9424E8961D002EC9A5 /* Infone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				2BDDBCAD24E8B244002EC9A5 /* InfoTableViewController.swift */,
 				2BDDBCB124E9D491002EC9A5 /* CellTableViewCell.swift */,
 				2BC228D124F5B1360026D142 /* DevicesViewController.swift */,
+				2BA6A77324FB143A00C6EABD /* SavedTableViewController.swift */,
 				2BAD526924F8639600AF9DEA /* Assets.xcassets */,
 				2BDDBC9F24E8961D002EC9A5 /* Main.storyboard */,
 				2BDDBCA424E89620002EC9A5 /* LaunchScreen.storyboard */,
@@ -200,6 +203,7 @@
 				2BDDBCAE24E8B244002EC9A5 /* InfoTableViewController.swift in Sources */,
 				2BDDBCB424E9D604002EC9A5 /* AppData.swift in Sources */,
 				2BDDBCB224E9D491002EC9A5 /* CellTableViewCell.swift in Sources */,
+				2BA6A77424FB143A00C6EABD /* SavedTableViewController.swift in Sources */,
 				2BDDBC9824E8961D002EC9A5 /* AppDelegate.swift in Sources */,
 				2BC228D224F5B1360026D142 /* DevicesViewController.swift in Sources */,
 				2BDDBC9A24E8961D002EC9A5 /* SceneDelegate.swift in Sources */,

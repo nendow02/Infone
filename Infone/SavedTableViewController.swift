@@ -38,7 +38,12 @@ class SavedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "saveID", for: indexPath)
-        cell.textLabel?.text = "\(savedName![indexPath.row]) (\(savedDevice![indexPath.row]))"
+        if savedName![indexPath.row] == "" {
+        //This is necessary bc there will be weird spacing without this
+            cell.textLabel?.text = "(\(savedDevice![indexPath.row]))"
+        } else {
+            cell.textLabel?.text = "\(savedName![indexPath.row]) (\(savedDevice![indexPath.row]))"
+        }
         return cell
     }
     

@@ -24,7 +24,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         })
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
             let textField = alertController.textFields![0] as UITextField
-            let name = textField.text ?? "Unnamed"
+            let name = textField.text ?? ""
             var currentSaveName = UserDefaults.standard.array(forKey: "name") ?? [String]()
             currentSaveName.append(name)
             var currentSaveDevice = UserDefaults.standard.array(forKey: "device") ?? [String]()
@@ -134,7 +134,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         }else {
             cell.selectionStyle = .none
             currentRow = AppData.shared.rowInfo[indexPath.section][indexPath.row]
-            if currentRow.result  ==  ""{
+            if indexPath.row == 0 && currentRow.result  ==  ""{
                 // first value will be "" if device is unsupported bc data would never be added from switch
                 let alert = UIAlertController(title: "Unsupported Device", message: "Infone doesn't support this device yet", preferredStyle: .alert)
                 self.present(alert, animated: true, completion: nil)

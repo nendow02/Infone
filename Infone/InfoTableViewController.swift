@@ -46,7 +46,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
             navigationItem.largeTitleDisplayMode = .never
             if chosenDeviceName == nil {
             //if chosenDeviceName is nil it means user did not come from Saved tab
-            let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
+                let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction))
             navigationItem.rightBarButtonItem = addBarButton
             }
         } else {
@@ -100,7 +100,7 @@ class InfoTableViewController: UITableViewController,UISearchResultsUpdating{
         searchController.isActive = false
         tableView.reloadData()
         tableView.scrollToRow(at: itemIndex, at: .middle, animated: true)
-        self.additionalSafeAreaInsets.top = 0.2
+        self.additionalSafeAreaInsets.top = 1
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
